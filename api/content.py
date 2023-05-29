@@ -1,7 +1,8 @@
 from sanic import response
 from helpers import to_response
 from bson import ObjectId
-
+from sanic_ext import validate
+import models
 
 def init_content_api(app):
     @app.get("/contents")
@@ -18,6 +19,7 @@ def init_content_api(app):
         return response.json(to_response(result), status=200)
 
     @app.post("/contents")
+    @validate(json=models.ContentM)
     async def add_content(request):
         result = request.json
         app.ctx.db.contents.insert_one(result)
@@ -30,6 +32,7 @@ def init_content_api(app):
         return response.json(None, status=204)
 
     @app.put("/contents/<id:str>")
+    @validate(json=models.ContentM)
     async def update_content(request, id):
         body = request.json
         result = app.ctx.db.contents.find_one({"_id": ObjectId(id)})
