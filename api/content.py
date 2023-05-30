@@ -28,7 +28,7 @@ def init_content_api(app):
         return response.json(to_response(result), status=200)
 
     @app.post("/contents")
-    @validate(json=models.ContentM)
+    @validate(json=models.ContentC)
     async def add_content(request, body: models.ContentM):
         result = request.json
         app.ctx.db.contents.insert_one(result)
@@ -46,8 +46,7 @@ def init_content_api(app):
         result = app.ctx.db.contents.find_one({"_id": ObjectId(id)})
         if result is None:
             return response.json({"Error": "Object Not Found"}, status=404)
-        update = {"Title": body["Title"], "Year": body["Year"], "Type": body["Type"]}
-        app.ctx.db.contents.update_one({"_id": ObjectId(id)}, {"$set": update}, upsert=True)
+        app.ctx.db.contents.update_one({"_id": ObjectId(id)}, {"$set": body}, upsert=True)
         data = app.ctx.db.contents.find_one({"_id": ObjectId(id)})
         return response.json(to_response(data), status=200)
 
