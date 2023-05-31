@@ -50,4 +50,3 @@ def init_content_api(app):
         data = app.ctx.db.contents.find_one({"_id": ObjectId(id)})
         return response.json(to_response(data), status=200)
 
-        # TODO: github'a pushlanacak
