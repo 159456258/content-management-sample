@@ -1,6 +1,5 @@
-from sanic import Sanic, response
 from pymongo import MongoClient
-from sanic.response import text, json
+from sanic import Sanic
 
 from api import init_api
 

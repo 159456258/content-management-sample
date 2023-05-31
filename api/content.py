@@ -4,14 +4,6 @@ from bson import ObjectId
 from sanic_ext import validate
 import models
 
-contentC = {
-    "Genres": ["Action", "Drama", "Thriller", "Science Fiction", "Animation", "Romance", "Crime", "Comedy"],
-    "Actors": ["Tobey Maguire", "Kirsten Dunst", "Willem Dafoe", "James Franco", "Christian Bale", "Cillian Murphy",
-               "Katie Holmes", "Michael Caine", "Patrick Stewart", "Ian McKellen", "Hugh Jackman", "Halle Berry"]
-
-
-}
-
 
 def init_content_api(app):
     @app.get("/contents")
@@ -49,4 +41,3 @@ def init_content_api(app):
         app.ctx.db.contents.update_one({"_id": ObjectId(id)}, {"$set": body}, upsert=True)
         data = app.ctx.db.contents.find_one({"_id": ObjectId(id)})
         return response.json(to_response(data), status=200)
-
