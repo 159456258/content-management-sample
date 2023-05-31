@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "b72f0b98-1193-4821-a77d-c58fe8a80adf",
+		"name": "StudentDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26810877"
+	},
+	"item": [
+		{
+			"name": "list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/contents/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"contents",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_by_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/contents/64772f9c153275d92827021e",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"contents",
+						"64772f9c153275d92827021e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Type\": \"Movie\",\r\n    \"Title\": \"Batman Begins\",\r\n    \"Year\": 2005,\r\n    \"Genres\": [\"Action\", \"Crime\",\"Drama\"],\r\n    \"Actors\": [\"Christian Bale\", \"Michael Caine\", \"Ken Watanabe\", \"Cillian Murphy\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/contents",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"contents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/contents/647471364875f005d060bc64",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"contents",
+						"647471364875f005d060bc64"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Actors\": [\"asd\",\"abc\",\"qwe\"]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/contents/6477323e153275d928270220",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"contents",
+						"6477323e153275d928270220"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
