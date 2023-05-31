@@ -21,7 +21,7 @@ def init_content_api(app):
 
     @app.post("/contents")
     @validate(json=models.ContentC)
-    async def add_content(request, body: models.ContentC):
+    async def add_content(request, body: models.ContentM):
         result = request.json
         app.ctx.db.contents.insert_one(result)
         return response.json(to_response(result), status=201)
